@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-control">
+    <button onclick="toggleMusic()">🎵 Play / Pause</button>
+</div>
+
+<div class="hearts"></div>
+
+<div class="container">
+    <h1 id="typing"></h1>
+
+    <div class="cake-container" onclick="cutCake()">
+        <div class="cake">
+            <div class="candle"></div>
+        </div>
+    </div>
+
+    <p id="cakeMessage">Click the cake to cut it 🎂</p>
+
+    <button class="btn" onclick="startFireworks()">Celebrate 🎆</button>
+    <a href="love.html" class="btn">💌 Read My Love Letter</a>
+
+    <div class="slideshow">
+        <img id="slide" src="https://picsum.photos/400/300?1">
+    </div>
+</div>
+
+<canvas id="fireworks"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
