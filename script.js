@@ -1,51 +1,56 @@
 // Typing Effect
 const text = "🎉 Happy Birthday My Love ❤️";
 let i = 0;
-function typingEffect() {
+function typing() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typingEffect, 100);
+        setTimeout(typing, 80);
     }
 }
-typingEffect();
+typing();
 
-// Cake Cut
+// Dark overlay when clicking anywhere
+document.body.addEventListener("click", function () {
+    document.getElementById("overlay").style.background = "rgba(0,0,0,0.4)";
+    document.getElementById("bgMusic").play();
+});
+
+// Cake cutting
 function cutCake() {
-    document.getElementById("cakeMessage").innerHTML =
-        "🍰 Cake Cut! May your life be full of love & happiness ❤️";
+    document.querySelector(".cake").classList.add("cut");
     document.querySelector(".candle").style.display = "none";
+    document.getElementById("cakeMessage").innerHTML =
+        "🍰 Cake Cut! May your life be full of love ❤️";
 }
 
-// Music Control
+// Music
 function toggleMusic() {
     const music = document.getElementById("bgMusic");
     music.paused ? music.play() : music.pause();
 }
 
-// Auto Play After Click
-document.body.addEventListener("click", function () {
-    document.getElementById("bgMusic").play();
-}, { once: true });
-
-// Fireworks
+// Continuous Fireworks
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 let particles = [];
 
 function startFireworks() {
-    for (let i = 0; i < 150; i++) {
-        particles.push({
-            x: canvas.width / 2,
-            y: canvas.height / 2,
-            radius: Math.random() * 3,
-            color: `hsl(${Math.random() * 360},100%,50%)`,
-            speedX: (Math.random() - 0.5) * 10,
-            speedY: (Math.random() - 0.5) * 10
-        });
-    }
+    setInterval(() => {
+        for (let i = 0; i < 80; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height / 2,
+                radius: Math.random() * 3,
+                color: `hsl(${Math.random() * 360},100%,50%)`,
+                speedX: (Math.random() - 0.5) * 6,
+                speedY: (Math.random() - 0.5) * 6
+            });
+        }
+    }, 1000);
 }
 
 function animate() {
@@ -68,9 +73,9 @@ animate();
 
 // Slideshow
 let images = [
-    "https://picsum.photos/400/300?1",
-    "https://picsum.photos/400/300?2",
-    "https://picsum.photos/400/300?3"
+    "https://picsum.photos/500/350?1",
+    "https://picsum.photos/500/350?2",
+    "https://picsum.photos/500/350?3"
 ];
 
 let slideIndex = 0;
