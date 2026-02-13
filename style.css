@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #ff4e8a, #ff9a9e);
+    overflow-x: hidden;
+    text-align: center;
+    color: white;
+}
+
+/* Floating Hearts */
+.hearts::before {
+    content: "💖 💕 💗 💓 💞 💘";
+    position: fixed;
+    width: 100%;
+    font-size: 25px;
+    animation: floatHearts 10s linear infinite;
+}
+
+@keyframes floatHearts {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+.container {
+    margin-top: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 45px;
+    min-height: 60px;
+}
+
+/* Cake Design */
+.cake-container {
+    cursor: pointer;
+    margin: 30px auto;
+}
+
+.cake {
+    width: 150px;
+    height: 100px;
+    background: pink;
+    border-radius: 10px;
+    position: relative;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.cake::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    background: #ff69b4;
+    top: -20px;
+    border-radius: 10px;
+}
+
+.candle {
+    width: 10px;
+    height: 30px;
+    background: white;
+    position: absolute;
+    top: -50px;
+    left: 70px;
+}
+
+.candle::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+
+.btn {
+    padding: 10px 20px;
+    background: white;
+    color: #ff4e8a;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* Slideshow */
+.slideshow {
+    margin-top: 30px;
+}
+
+.slideshow img {
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px white;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
