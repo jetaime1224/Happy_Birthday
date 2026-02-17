@@ -1,85 +1,119 @@
-// Typing Effect
-const text = "🎉 Happy Birthday My Love ❤️";
-let i = 0;
-function typing() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 80);
-    }
-}
-typing();
-
-// Dark overlay when clicking anywhere
-document.body.addEventListener("click", function () {
-    document.getElementById("overlay").style.background = "rgba(0,0,0,0.4)";
-    document.getElementById("bgMusic").play();
-});
-
-// Cake cutting
-function cutCake() {
-    document.querySelector(".cake").classList.add("cut");
-    document.querySelector(".candle").style.display = "none";
-    document.getElementById("cakeMessage").innerHTML =
-        "🍰 Cake Cut! May your life be full of love ❤️";
+```css
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-// Music
-function toggleMusic() {
-    const music = document.getElementById("bgMusic");
-    music.paused ? music.play() : music.pause();
+body{
+height:100vh;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+overflow:hidden;
+color:white;
+text-align:center;
 }
 
-// Continuous Fireworks
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-function startFireworks() {
-    setInterval(() => {
-        for (let i = 0; i < 80; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height / 2,
-                radius: Math.random() * 3,
-                color: `hsl(${Math.random() * 360},100%,50%)`,
-                speedX: (Math.random() - 0.5) * 6,
-                speedY: (Math.random() - 0.5) * 6
-            });
-        }
-    }, 1000);
+/* Floating hearts */
+.heart{
+position:absolute;
+color:rgba(255,255,255,0.6);
+font-size:20px;
+animation:float 8s linear infinite;
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach((p, index) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        p.radius *= 0.96;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-
-        if (p.radius < 0.3) particles.splice(index, 1);
-    });
-    requestAnimationFrame(animate);
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0}
+100%{transform:translateY(-10vh);opacity:1}
 }
-animate();
 
-// Slideshow
-let images = [
-    "https://picsum.photos/500/350?1",
-    "https://picsum.photos/500/350?2",
-    "https://picsum.photos/500/350?3"
-];
+/* Heading */
+h1{
+margin-top:40px;
+font-size:3rem;
+}
 
-let slideIndex = 0;
-setInterval(() => {
-    slideIndex = (slideIndex + 1) % images.length;
-    document.getElementById("slide").src = images[slideIndex];
-}, 3000);
+/* Cake */
+.cake{
+margin:60px auto;
+width:200px;
+cursor:pointer;
+position:relative;
+}
+
+.layer{
+height:60px;
+background:#fff;
+border-radius:10px;
+margin-bottom:5px;
+}
+
+.layer:nth-child(2){background:#ffccd5;}
+.layer:nth-child(3){background:#ffb3c1;}
+
+.candle{
+width:10px;
+height:40px;
+background:#fff;
+margin:auto;
+position:relative;
+border-radius:5px;
+}
+
+.flame{
+width:12px;
+height:18px;
+background:gold;
+border-radius:50%;
+position:absolute;
+top:-18px;
+left:-1px;
+animation:flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker{
+from{transform:scale(1)}
+to{transform:scale(1.3)}
+}
+
+/* Buttons */
+.buttons{margin-top:30px;}
+
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d6d;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px rgba(255,255,255,.8);
+}
+
+.music{
+position:absolute;
+top:20px;
+right:20px;
+}
+
+/* Love Page */
+.love-page{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.letter-box{
+background:white;
+color:#333;
+padding:40px;
+border-radius:20px;
+width:400px;
+}
+```
