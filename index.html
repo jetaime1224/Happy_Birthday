@@ -1,44 +1,39 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday My Love ❤️</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div id="overlay"></div>
+<h1>🎉 Happy Birthday My Love ❤️</h1>
 
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mp3">
-</audio>
-
-<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
-
-<div class="hearts"></div>
-
-<div class="container">
-    <h1 id="typing"></h1>
-
-    <div class="cake-container" onclick="cutCake()">
-        <div class="cake">
-            <div class="candle"></div>
-        </div>
-    </div>
-
-    <p id="cakeMessage">Click the cake to cut it 🎂</p>
-
-    <button class="btn" onclick="startFireworks()">Celebrate 🎆</button>
-    <a href="love.html" class="btn">💌 Read My Love Letter</a>
-
-    <div class="slideshow">
-        <img id="slide" src="https://picsum.photos/500/350?1">
-    </div>
+<div class="cake" onclick="cutCake()">
+<div class="candle">
+<div class="flame"></div>
+</div>
+<div class="layer"></div>
+<div class="layer"></div>
+<div class="layer"></div>
 </div>
 
-<canvas id="fireworks"></canvas>
+<div class="buttons">
+<button onclick="goToLove()">💌 Read My Love Letter</button>
+<button onclick="celebrate()">🎉 Celebrate</button>
+</div>
+
+<button class="music" onclick="toggleMusic()">🎵 Music</button>
+
+<audio id="song" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
 
 <script src="script.js"></script>
 </body>
 </html>
+```
